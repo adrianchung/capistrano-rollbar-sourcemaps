@@ -2,7 +2,7 @@
 load File.expand_path('../../tasks/sourcemaps.rake', __FILE__)
 
 namespace :deploy do
-  after :set_current_revision, 'rollbar:sourcemaps:upload'
+  after 'post_deploy:compile_assets', 'rollbar:sourcemaps:upload'
 end
 
 namespace :load do
